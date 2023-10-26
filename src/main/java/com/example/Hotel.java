@@ -36,7 +36,7 @@ public class Hotel {
 	return availableRooms;
    }
 
-   public void book(int noOfPpl, double budget) {
+   public boolean book(int noOfPpl, double budget) {
 		ArrayList<Room> affordableRooms= new ArrayList<Room>();
 		ArrayList<Room> selectedRooms = this.findAvailableRooms(); 
 		for (Room room: selectedRooms) {
@@ -73,6 +73,8 @@ public class Hotel {
 			System.out.println(room.getPrice());
 			System.out.println(room.getName());
 		}
+
+		return true;
    }
 
 }
