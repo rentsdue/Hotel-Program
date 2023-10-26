@@ -5,26 +5,27 @@ public class Main {
     public static void main(String[] args) {
         //Sets up hotel with rooms
         Hotel pitbull= new Hotel("APCSA");
-        Room economyRoom= new Room(2, 420, false);
-        Room deluxeRoom= new Room (2, 6900, false);
-        Room theBestRoom= new Room (2, 123456789, false);
+        Room economyRoom= new Room(2, 420, false, "Economy Room");
+        Room blancoRoom= new Room (2, 1999, false, "Blanco Room");
+        Room deluxeRoom= new Room (1, 6900, false, "Deluxe Room");
+        Room theBestRoom= new Room (4, 690000, false, "The Best Room");
+        Room negroRoom= new Room (3, 1000, false, "Negro Room");
+        Room gaeRoom= new Room(6, 1500, false, "Happy Room");
+        Room zRoom= new Room(2, 1001, false, "Z Room");
         ArrayList <Room> theBestList= new ArrayList<Room>();
 
        //Adds the rooms to the hotel//
         theBestList.add(economyRoom);
         theBestList.add(deluxeRoom);
         theBestList.add(theBestRoom);
+        theBestList.add(negroRoom);
+        theBestList.add(blancoRoom);
+        theBestList.add(gaeRoom);
+        theBestList.add(zRoom);
         pitbull.setRoomList(theBestList);
 
         //Printing stuff to make sure it works
-        System.out.println(pitbull.getName());
-        for (Room room: pitbull.getRoomList()) {
-            System.out.println(room.getOccupancy());
-            System.out.println(room.getPrice());
-            System.out.println(room.getOccupied());
-        }
-        
-        pitbull.book(3, 2000);
+        pitbull.book(8, 10000);
     }
 }
 

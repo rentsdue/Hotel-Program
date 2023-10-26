@@ -4,11 +4,13 @@ public class Room {
     private int occupancy;
     private double price;
     private boolean occupied;
+    private String name;
 
-    public Room(int occupancy, double price, boolean occupied) {
+    public Room(int occupancy, double price, boolean occupied, String name) {
         this.occupancy=occupancy;
         this.price=price;
         this.occupied=occupied;
+        this.name=name;
     }
 
     public int getOccupancy() {
@@ -23,6 +25,10 @@ public class Room {
         return this.occupied;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public void setOccupancy(int newOccupancy) {
         this.occupancy=newOccupancy;
     }
@@ -33,5 +39,9 @@ public class Room {
 
     public void setOccupied(boolean newOccupied) {
         this.occupied=newOccupied;
+    }
+
+    public void setName(String newName) {
+        this.name=newName;
     }
 }

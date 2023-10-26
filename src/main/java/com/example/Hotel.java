@@ -2,24 +2,24 @@ package main.java.com.example;
 import java.util.ArrayList;
 
 public class Hotel {
-   private String name;
+   private String hotelName;
    private ArrayList<Room> roomList;
    
-   public Hotel(String name) {
-		this.name=name;
+   public Hotel(String hotelName) {
+		this.hotelName=hotelName;
 		this.roomList= new ArrayList <Room>();
    }
 
-   public String getName() {
-		return this.name;
+   public String getHotelName() {
+		return this.hotelName;
    }
 
    public ArrayList<Room> getRoomList() {
 		return this.roomList;
    }
 
-   public void setName(String newName) {
-		this.name=newName;
+   public void setHotelName(String newName) {
+		this.hotelName=newName;
    }
 
    public void setRoomList(ArrayList<Room> newList) {
@@ -36,8 +36,7 @@ public class Hotel {
 	return availableRooms;
    }
 
-   public ArrayList<Room> book(int noOfPpl, double budget) {
-		System.out.println(budget);
+   public void book(int noOfPpl, double budget) {
 		ArrayList<Room> affordableRooms= new ArrayList<Room>();
 		ArrayList<Room> selectedRooms = this.findAvailableRooms(); 
 		for (Room room: selectedRooms) {
@@ -45,8 +44,35 @@ public class Hotel {
 				affordableRooms.add(room);
 			}
 		}
-	return affordableRooms;
-   }
+	
+		for (int i=0; i<affordableRooms.size(); i++) {
+			for (int j=0; j<affordableRooms.size()-i-1; j++) {
+				if (affordableRooms.get(j).getPrice()>affordableRooms.get(j+1).getPrice()) {
+					Room temp= affordableRooms.get(j);
+					affordableRooms.set(j, affordableRooms.get(j+1));
+					affordableRooms.set(j+1, temp);
+				}
+			}
+		}
 
+		double remainingBudget=budget;
+		ArrayList <Room> wantedRooms= new ArrayList<Room>();
+		for (Room room: affordableRooms) {
+			if (remainingBudget-room.getPrice()<=0 || noOfPpl-room.getOccupancy()<=0) {
+				break;
+			}
+			remainingBudget -= room.getPrice();
+			noOfPpl -= room.getOccupancy();
+			wantedRooms.add(room);
+		}
+
+		for(Room room: wantedRooms) {
+			room.setOccupied(true);
+			System.out.println(room.getOccupancy());
+			System.out.println(room.getOccupied());
+			System.out.println(room.getPrice());
+			System.out.println(room.getName());
+		}
+   }
 
 }
