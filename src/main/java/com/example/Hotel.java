@@ -58,7 +58,7 @@ public class Hotel {
 		double remainingBudget=budget;
 		ArrayList <Room> wantedRooms= new ArrayList<Room>();
 		for (Room room: affordableRooms) {
-			if (remainingBudget-room.getPrice()<=0 || noOfPpl-room.getOccupancy()<=0) {
+			if (remainingBudget-room.getPrice()<=0 || noOfPpl<=0) {
 				break;
 			}
 			remainingBudget -= room.getPrice();
@@ -74,7 +74,12 @@ public class Hotel {
 			System.out.println(room.getName());
 		}
 
-		return true;
+		if (remainingBudget>=0) {
+			return true;
+		} else {
+			return false;
+		}
+
    }
 
 }

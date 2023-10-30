@@ -7,10 +7,10 @@ public class Main {
         Hotel pitbull= new Hotel("APCSA");
         Room economyRoom= new Room(2, 420, false, "Economy Room");
         Room blancoRoom= new Room (2, 1999, false, "Blanco Room");
-        Room deluxeRoom= new Room (1, 6900, false, "Deluxe Room");
-        Room theBestRoom= new Room (4, 690000, false, "The Best Room");
-        Room negroRoom= new Room (3, 1000, false, "Negro Room");
-        Room gaeRoom= new Room(6, 1500, false, "Happy Room");
+        Room deluxeRoom= new Room (2, 6900, false, "Deluxe Room");
+        Room theBestRoom= new Room (2, 690000, false, "The Best Room");
+        Room negroRoom= new Room (2, 1000, false, "Negro Room");
+        Room gaeRoom= new Room(2, 1500, false, "Happy Room");
         Room zRoom= new Room(2, 1001, false, "Z Room");
         ArrayList <Room> theBestList= new ArrayList<Room>();
 
@@ -25,7 +25,7 @@ public class Main {
         pitbull.setRoomList(theBestList);
 
         //Printing stuff to make sure it works
-        pitbull.book(8, 10000);
+        System.out.println(pitbull.book(8, 10000));
     }
 }
 
