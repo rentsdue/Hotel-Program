@@ -4,10 +4,12 @@ import java.util.ArrayList;
 public class Hotel {
    private String hotelName;
    private ArrayList<Room> roomList;
+   private ArrayList<Employee> employeeList;
    
    public Hotel(String hotelName) {
 		this.hotelName=hotelName;
 		this.roomList= new ArrayList <Room>();
+		this.employeeList= new ArrayList<Employee>();
    }
 
    public String getHotelName() {
@@ -18,12 +20,28 @@ public class Hotel {
 		return this.roomList;
    }
 
+   public ArrayList<Employee> getEmployeeList() {
+		return this.employeeList;
+   }
+
    public void setHotelName(String newName) {
 		this.hotelName=newName;
    }
 
    public void setRoomList(ArrayList<Room> newList) {
 		this.roomList=newList;
+   }
+
+   public void setEmployeeList(ArrayList<Employee> newEmployeeList) {
+		this.employeeList=newEmployeeList;
+   }
+
+   public void hireEmployee(ArrayList<Employee> employeeList, Employee employee) {
+		employeeList.add(employee);
+   }
+
+   public void fireEmployee(ArrayList<Employee> employeeList, Employee employee) {
+		employeeList.remove(employee);
    }
 
    public ArrayList<Room> findAvailableRooms() {

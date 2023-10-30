@@ -26,6 +26,8 @@ public class Main {
 
         //Printing stuff to make sure it works
         System.out.println(pitbull.book(8, 10000));
+
+
     }
 }
 
