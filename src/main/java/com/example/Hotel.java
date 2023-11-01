@@ -12,6 +12,8 @@ public class Hotel {
 		this.employeeList= new ArrayList<Employee>();
    }
 
+ 	//Getters  
+ 
    public String getHotelName() {
 		return this.hotelName;
    }
@@ -23,6 +25,8 @@ public class Hotel {
    public ArrayList<Employee> getEmployeeList() {
 		return this.employeeList;
    }
+
+   	//Setters
 
    public void setHotelName(String newName) {
 		this.hotelName=newName;
@@ -36,13 +40,39 @@ public class Hotel {
 		this.employeeList=newEmployeeList;
    }
 
-   public void hireEmployee(ArrayList<Employee> employeeList, Employee employee) {
-		employeeList.add(employee);
+   //Manipulate employees
+
+   public void hireEmployee(ArrayList<Employee> employeeList, Person person) {
+		employeeList.add((Employee) person);
    }
 
-   public void fireEmployee(ArrayList<Employee> employeeList, Employee employee) {
+   public void fireEmployee(Employee employee) {
 		employeeList.remove(employee);
    }
+
+   public void affirmativeAction(ArrayList<Employee> employeeList, Employee employee) {
+		if (employee.getRace()=="White" || employee.getRace()=="Asian") {
+				fireEmployee(employee);
+				System.out.println("Sorry, we fired you due to diversity quotas. LOL!");
+			}
+		}
+
+   public void diversityHire(Person person) {
+		if (person.getRace()=="Black") {
+			hireEmployee(employeeList, person);
+			System.out.println("Well done! Totally not racist lol");
+		}
+   }
+
+   public boolean checkEmployee(Employee employee, ArrayList<Employee> employeeList) {
+		if (employeeList.contains(employee)) {
+			return true;
+		} else {
+			return false;
+		}
+   }
+
+   //Booking
 
    public ArrayList<Room> findAvailableRooms() {
 		ArrayList<Room> availableRooms= new ArrayList<Room>();
