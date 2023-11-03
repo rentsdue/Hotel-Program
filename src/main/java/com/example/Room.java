@@ -5,6 +5,7 @@ public class Room {
     private double price;
     private boolean occupied;
     private String name;
+    
 
     public Room(int occupancy, double price, boolean occupied, String name) {
         this.occupancy=occupancy;
@@ -44,4 +45,6 @@ public class Room {
     public void setName(String newName) {
         this.name=newName;
     }
+
+
 }

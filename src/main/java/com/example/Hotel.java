@@ -5,14 +5,16 @@ public class Hotel {
    private String hotelName;
    private ArrayList<Room> roomList;
    private ArrayList<Employee> employeeList;
+   private ArrayList<Guest> guestList;
    
    public Hotel(String hotelName) {
 		this.hotelName=hotelName;
 		this.roomList= new ArrayList <Room>();
 		this.employeeList= new ArrayList<Employee>();
+		this.guestList= new ArrayList<Guest>();
    }
 
- 	//Getters  
+//Getters  
  
    public String getHotelName() {
 		return this.hotelName;
@@ -24,6 +26,10 @@ public class Hotel {
 
    public ArrayList<Employee> getEmployeeList() {
 		return this.employeeList;
+   }
+
+   public ArrayList<Guest> getGuestList() {
+		return this.guestList;
    }
 
    	//Setters
@@ -38,6 +44,10 @@ public class Hotel {
 
    public void setEmployeeList(ArrayList<Employee> newEmployeeList) {
 		this.employeeList=newEmployeeList;
+   }
+
+   public void setGuestList(ArrayList<Guest> newGuestList) {
+		this.guestList=newGuestList;
    }
 
    //Manipulate employees
@@ -72,6 +82,14 @@ public class Hotel {
 		}
    }
 
+   public void addGuest(Guest guest) {
+	this.guestList.add(guest);
+	}
+
+	public void removeGuest(Guest guest) {
+		this.guestList.remove(guest);
+	}
+
    //Booking
 
    public ArrayList<Room> findAvailableRooms() {
@@ -84,9 +102,11 @@ public class Hotel {
 	return availableRooms;
    }
 
-   public boolean book(int noOfPpl, double budget) {
+
+   public boolean book(ArrayList<Guest> guests, double budget) {
 		ArrayList<Room> affordableRooms= new ArrayList<Room>();
 		ArrayList<Room> selectedRooms = this.findAvailableRooms(); 
+		int noOfPpl=guests.size();
 		for (Room room: selectedRooms) {
 			if (room.getPrice()<=budget) {
 				affordableRooms.add(room);
@@ -117,7 +137,6 @@ public class Hotel {
 		for(Room room: wantedRooms) {
 			room.setOccupied(true);
 			System.out.println(room.getOccupancy());
-			System.out.println(room.getOccupied());
 			System.out.println(room.getPrice());
 			System.out.println(room.getName());
 		}

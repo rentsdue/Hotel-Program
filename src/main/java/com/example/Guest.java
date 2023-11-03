@@ -44,4 +44,12 @@ public class Guest extends Person {
     public void setLuggages(int newLuggages) {
         this.luggages=newLuggages;
     }
+
+    public void orderBreakfast() {
+        this.breakfast=true;
+    }
+
+    public void makeMembership() {
+        this.membership=true;
+    }
 }
