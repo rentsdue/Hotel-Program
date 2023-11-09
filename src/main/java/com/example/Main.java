@@ -39,7 +39,7 @@ public class Main {
         theBestList.add(zRoom);
         pitbull.setRoomList(theBestList);
         pitbull.setEmployeeList(pitbullEmployees);
-        pitbull.setGuestList(pitbullGuests);
+
 
         //Getter and setter test
         System.out.println(bradLong.getRace());

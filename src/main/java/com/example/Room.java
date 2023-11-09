@@ -1,10 +1,12 @@
 package main.java.com.example;
+import java.util.ArrayList;
 
 public class Room {
     private int occupancy;
     private double price;
     private boolean occupied;
     private String name;
+    private ArrayList<Guest> guestList;
     
 
     public Room(int occupancy, double price, boolean occupied, String name) {
@@ -12,6 +14,7 @@ public class Room {
         this.price=price;
         this.occupied=occupied;
         this.name=name;
+        this.guestList= new ArrayList<Guest>();
     }
 
     public int getOccupancy() {
@@ -30,6 +33,10 @@ public class Room {
         return this.name;
     }
 
+    public ArrayList<Guest> getGuestList() {
+        return this.guestList;
+    }
+
     public void setOccupancy(int newOccupancy) {
         this.occupancy=newOccupancy;
     }
@@ -46,5 +53,12 @@ public class Room {
         this.name=newName;
     }
 
+    public void setGuestList(ArrayList<Guest> a) {
+        this.guestList=a;
+    }
+
+    public void addGuest(Guest guest) {
+        this.guestList.add(guest);
+    }
 
 }

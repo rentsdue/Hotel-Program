@@ -5,13 +5,11 @@ public class Hotel {
    private String hotelName;
    private ArrayList<Room> roomList;
    private ArrayList<Employee> employeeList;
-   private ArrayList<Guest> guestList;
-   
+
    public Hotel(String hotelName) {
 		this.hotelName=hotelName;
 		this.roomList= new ArrayList <Room>();
 		this.employeeList= new ArrayList<Employee>();
-		this.guestList= new ArrayList<Guest>();
    }
 
 //Getters  
@@ -28,10 +26,6 @@ public class Hotel {
 		return this.employeeList;
    }
 
-   public ArrayList<Guest> getGuestList() {
-		return this.guestList;
-   }
-
    	//Setters
 
    public void setHotelName(String newName) {
@@ -46,9 +40,6 @@ public class Hotel {
 		this.employeeList=newEmployeeList;
    }
 
-   public void setGuestList(ArrayList<Guest> newGuestList) {
-		this.guestList=newGuestList;
-   }
 
    //Manipulate employees
 
@@ -81,14 +72,6 @@ public class Hotel {
 			return false;
 		}
    }
-
-   public void addGuest(Guest guest) {
-	this.guestList.add(guest);
-	}
-
-	public void removeGuest(Guest guest) {
-		this.guestList.remove(guest);
-	}
 
    //Booking
 
@@ -135,6 +118,12 @@ public class Hotel {
 		}
 
 		for(Room room: wantedRooms) {
+			for (Guest guest: guests) {
+				room.addGuest(guest);
+				if (room.getGuestList().size()>=room.getOccupancy()) {
+					break;
+				}
+			}
 			room.setOccupied(true);
 			System.out.println(room.getOccupancy());
 			System.out.println(room.getPrice());
